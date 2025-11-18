@@ -47,7 +47,7 @@ jobs:
         continue-on-error: true  # Allow lint warnings for now - fix in future PR
 
       - name: Build web app
-        run: npm run build --workspace=apps/web
+        run: npm run build
         env:
           # Required for Next.js build (use placeholder values for CI)
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co' }}
