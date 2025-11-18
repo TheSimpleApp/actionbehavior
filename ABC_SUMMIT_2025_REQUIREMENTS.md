@@ -6,7 +6,7 @@
 **Attendees:** ~2,400 employees  
 **Budget:** $6,000
 
-**Tech Stack:** React Native (Expo) + Next.js 14 + Supabase
+**Tech Stack:** React Native (Expo SDK 51) + Next.js 16 + Supabase
 
 ---
 

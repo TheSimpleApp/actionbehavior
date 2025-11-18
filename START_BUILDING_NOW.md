@@ -40,15 +40,15 @@ Here's your immediate path forward with Claude Max + Cursor Ultra.
 I'm building ABC Summit 2025 conference app for 2,400 employees.
 
 Tech stack:
-- Web (admin + registration): Next.js 14 + Supabase
-- Mobile: React Native (Expo SDK 50) + Supabase
+- Web (admin + registration): Next.js 16 + Supabase
+- Mobile: React Native (Expo SDK 51) + Supabase
 - Monorepo: Turborepo
 
 Create the project structure:
 
 1. Initialize monorepo with these apps:
-   - apps/web (Next.js 14 with App Router)
-   - apps/mobile (Expo with tabs template)
+   - apps/web (Next.js 16 with App Router)
+   - apps/mobile (Expo SDK 51 with tabs template)
    - packages/shared (types, API, utils)
 
 2. Set up package.json with these scripts:
