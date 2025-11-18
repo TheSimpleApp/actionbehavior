@@ -1,0 +1,15 @@
+Add debug setup and Supabase connection testing
+
+- Add Supabase connection testing UI to home page
+- Enhance Supabase client error handling with validation
+- Update next.config.ts to properly expose environment variables
+- Add VS Code debugging configurations (launch.json, settings.json)
+- Add debug scripts to package.json (dev:debug, debug)
+- Add auto-launch PowerShell script (launch-app.ps1)
+- Add comprehensive documentation (DEBUG_SETUP.md)
+- Update .gitignore to allow committing VS Code config files
+
+This enables proper local development, debugging, and Supabase
+connection verification. The home page now serves as a health
+check dashboard showing real-time connection status.
+
