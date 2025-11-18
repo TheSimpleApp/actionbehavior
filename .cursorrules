@@ -1,0 +1,120 @@
+# ABC Summit 2025 - Cursor Rules
+
+## Project Overview
+
+This is a monorepo for the ABC Summit 2025 Conference App:
+- **Web:** Next.js 16 (App Router) + React 19 + TypeScript
+- **Mobile:** Expo SDK 51 + React Native + React 18 + TypeScript
+- **Backend:** Supabase (PostgreSQL + Auth + Storage)
+- **Shared:** TypeScript types, utilities, algorithms
+
+## Critical Requirements
+
+1. **Node.js 20.9+** is REQUIRED (Next.js 16 dependency)
+2. **Web uses React 19**, **Mobile uses React 18** (different ecosystems - this is intentional)
+3. Always use TypeScript with strict mode
+4. Use shared types from `packages/shared/src/types/`
+
+## Code Style
+
+### TypeScript
+- Use strict TypeScript
+- Prefer interfaces over types for object shapes
+- Use `const` assertions where appropriate
+- Generate Supabase types: `npm run db:types`
+
+### React/Next.js (Web)
+- Use Server Components by default
+- Use Client Components only when needed (`'use client'`)
+- Use Server Actions for mutations
+- Use TanStack Query for data fetching
+- Use Zustand for client state
+
+### React Native (Mobile)
+- Use Expo Router for navigation
+- Use NativeWind for styling (Tailwind CSS)
+- Use TanStack Query for data fetching
+- Use Zustand for client state
+- Follow React Native best practices
+
+### File Organization
+- Web: `apps/web/app/` for pages, `apps/web/components/` for components
+- Mobile: `apps/mobile/app/` for pages, `apps/mobile/components/` for components
+- Shared: `packages/shared/src/` for shared code
+- Types: `packages/shared/src/types/` (especially `supabase.ts`)
+
+## Database
+
+- Use Supabase migrations for schema changes
+- Always add RLS policies for security
+- Generate types after schema changes: `npm run db:types`
+- Use Supabase client from `lib/supabase/`
+
+## Key Features Priority
+
+1. **Data Exports** - Highest priority (2024's pain point)
+2. **Roommate Pairing** - Automated algorithm
+3. **Admin Dashboard** - Full control and exports
+
+## Development Workflow
+
+1. Create migrations: `npm run db:migration`
+2. Test locally: `npm run db:push`
+3. Generate types: `npm run db:types`
+4. Develop: `npm run web` or `npm run mobile`
+5. Test thoroughly before committing
+
+## Common Patterns
+
+### Supabase Client
+- Web Server: `lib/supabase/server.ts`
+- Web Client: `lib/supabase/client.ts`
+- Mobile: `lib/supabase.ts`
+
+### Forms
+- Use React Hook Form + Zod
+- Validate on both client and server
+- Use Server Actions for submission
+
+### Error Handling
+- Always handle errors gracefully
+- Show user-friendly error messages
+- Log errors for debugging
+
+## Testing
+
+- Test critical paths manually
+- Use TypeScript for type safety
+- Test on both web and mobile
+- Test with real Supabase data
+
+## Performance
+
+- Use Server Components (web)
+- Optimize images (Next.js Image)
+- Use React.memo when appropriate
+- Profile before optimizing
+
+## Security
+
+- Always use RLS policies
+- Never expose sensitive data
+- Validate inputs (Zod)
+- Use environment variables for secrets
+
+## Documentation
+
+- Update README.md for major changes
+- Document complex algorithms
+- Add comments for non-obvious code
+- Keep documentation in sync with code
+
+## AI-Assisted Development
+
+When using AI assistance:
+- Reference existing patterns in the codebase
+- Use shared types from `packages/shared`
+- Follow the established architecture
+- Test changes before committing
+- Keep code consistent with existing style
+

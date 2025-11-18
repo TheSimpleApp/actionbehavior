@@ -9,6 +9,8 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
+    "web": "cd apps/web && npm run dev",
+    "mobile": "cd apps/mobile && npx expo start",
     "dev:web": "cd apps/web && npm run dev",
     "dev:mobile": "cd apps/mobile && npx expo start",
     "build": "turbo run build",
