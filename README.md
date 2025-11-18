@@ -1,8 +1,8 @@
-# 🎯 ABC Summit 2025 - ActionBehavior Conference App
+# 🎯 ABC Summit 2025
 
-> Enterprise conferencing platform for 2,400+ employees built with React Native, Next.js, and Supabase
+> Enterprise conference app for 2,400+ employees
 
-**Event Date:** February 27-28, 2026  
+**Event:** February 27-28, 2026  
 **Venue:** Gaylord Texan, Grapevine, TX  
 **Client:** Action Behavior Centers
 
@@ -10,104 +10,200 @@
 
 ## 🚀 Quick Start
 
-**New to this project?** Start here:
-1. Read `START_BUILDING_NOW.md` - Week 1 action plan
-2. Read `ABC_SUMMIT_2025_REQUIREMENTS.md` - Complete requirements
-3. Follow `GETTING_STARTED.md` - Setup instructions
-4. Use `AI_PROMPTS_CHEATSHEET.md` - Ready-to-paste prompts
+```bash
+# Install dependencies
+npm install
+
+# Setup environment variables (see DEVELOPMENT.md)
+cp apps/web/.env.local.example apps/web/.env.local
+# Edit .env.local with your Supabase credentials
+
+# Start development server
+npm run dev:web
+```
+
+Open [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 📁 Documentation Guide
+## 📚 Documentation
 
-### Start Building (Priority Files)
-- **START_BUILDING_NOW.md** ⚡ - Your Week 1 day-by-day action plan
-- **ABC_SUMMIT_2025_REQUIREMENTS.md** 📋 - Complete requirements from contract
-- **README_FIRST.md** 🎯 - Context & navigation guide
-
-### Architecture & Planning
-- **ARCHITECTURE_PLAN.md** - Full 10-week enterprise architecture
-- **MVP_ARCHITECTURE.md** - Simplified 6-week approach
-- **FINAL_DOCUMENTATION.md** - Comprehensive technical guide
-- **CONTRACT_ANALYSIS.md** - Contract breakdown
-
-### Development Guides
-- **VIBE_CODING_GUIDE.md** - AI-assisted development best practices
-- **AI_PROMPTS_CHEATSHEET.md** - Copy-paste AI prompts
-- **GETTING_STARTED.md** - Environment setup
-- **PROJECT_CHECKLIST.md** - Progress tracker
-
-### Comparisons
-- **FULL_VS_MVP.md** - Feature comparison
-- **START_HERE.md** - Original overview
+- **[REQUIREMENTS.md](REQUIREMENTS.md)** - Complete project requirements
+- **[DEVELOPMENT.md](DEVELOPMENT.md)** - Setup & development guide
+- **[QUICK_SETUP.md](QUICK_SETUP.md)** - Quick setup reference
+- **[START_HERE.md](START_HERE.md)** - Getting started guide
 
 ---
 
-## 🏗️ Tech Stack
+## 🏗️ Project Structure
 
-**Mobile App:** React Native (Expo SDK 51)  
-**Web Admin:** Next.js 16 (App Router)  
-**Registration:** Next.js 16 (same codebase)  
-**Backend:** Supabase (PostgreSQL + Auth + Storage + Realtime)  
-**State:** Zustand + TanStack Query  
-**Styling:** Tailwind CSS + NativeWind  
-**AI Tools:** Claude Max + Cursor Ultra
+```
+abc-summit-2025/
+├── apps/
+│   ├── web/              # Next.js Web Admin Portal
+│   └── mobile/           # React Native Mobile App (Expo)
+├── packages/
+│   └── shared/           # Shared types & utilities
+└── supabase/
+    └── migrations/       # Database migrations
+```
 
 ---
 
-## 🎯 Key Features
+## 🛠️ Tech Stack
 
-### Top Priorities (From Client Meeting)
-1. **Data Exports** - Comprehensive CSV exports (2024's pain point)
+| Component | Technology |
+|-----------|-----------|
+| **Web Admin** | Next.js 16, React 19, TypeScript |
+| **Mobile App** | React Native (Expo SDK 51) |
+| **Backend** | Supabase (PostgreSQL + Auth + Storage) |
+| **Styling** | Tailwind CSS (web), NativeWind (mobile) |
+| **State** | Zustand + TanStack Query |
+| **Monorepo** | Turborepo |
+
+---
+
+## 🔥 Key Features
+
+### Top Priorities
+1. **Data Exports** - One-click CSV exports (critical for client)
 2. **Roommate Pairing** - Automated algorithm with 11 role types
 3. **Admin Control** - Self-service content management
 
-### Core Features
-- Event management & registration
-- Complex roommate pairing algorithm
-- Travel information hub (NEW!)
+### Web Admin Portal
+- User management
+- Registration oversight
+- Roommate pairing management
+- Data exports (CSV)
+- Travel coordination
+- Push notifications
+
+### Mobile App
+- Travel hub (flights, hotel, roommates)
+- Event schedule
 - Interactive floor plans
-- Push notifications (improved)
+- Speaker bios
 - QR code check-in
-- Real-time schedule updates
+- Push notifications
 
 ---
 
-## 💡 Why React Native + Supabase?
-
-**Better than Flutter + Firebase for:**
-- ✅ Data exports (SQL → CSV is trivial)
-- ✅ AI-assisted coding (Claude/Cursor optimized)
-- ✅ Admin panel (same TypeScript stack)
-- ✅ Complex queries (PostgreSQL)
-- ✅ Development speed (vibe coding)
-
----
-
-## 📞 Getting Help
-
-**Stuck?** Check these in order:
-1. Relevant section in ABC_SUMMIT_2025_REQUIREMENTS.md
-2. Similar prompt in AI_PROMPTS_CHEATSHEET.md
-3. Troubleshooting in GETTING_STARTED.md
-4. Architecture patterns in FINAL_DOCUMENTATION.md
-
----
-
-## 🚀 Start Building
+## 📋 Available Scripts
 
 ```bash
-# Read the action plan
-code START_BUILDING_NOW.md
+# Development
+npm run dev              # Run all apps
+npm run dev:web          # Web admin only
+npm run dev:mobile       # Mobile app only
 
-# Follow Week 1 day-by-day
-# Start vibe coding with Claude + Cursor!
+# Database
+npm run db:start         # Start local Supabase
+npm run db:reset         # Reset & apply migrations
+
+# Build
+npm run build            # Build all apps
+npm run build:web        # Build web admin
+
+# Utilities
+npm run lint             # Lint code
+npm run format           # Format with Prettier
 ```
-
-**You have everything you need. Time to build! 💪**
 
 ---
 
-**Repository:** https://github.com/TheSimpleApp/actionbehavior  
-**Built with:** Claude Max + Cursor Ultra  
+## 🚦 Getting Started
+
+### For First Time Setup
+
+1. **Read the docs:**
+   - [DEVELOPMENT.md](DEVELOPMENT.md) - Complete setup guide
+   - [REQUIREMENTS.md](REQUIREMENTS.md) - What we're building
+
+2. **Setup Supabase:**
+   - Create account at [supabase.com](https://supabase.com)
+   - Create new project
+   - Copy credentials
+
+3. **Configure environment:**
+   - See [QUICK_SETUP.md](QUICK_SETUP.md) for details
+
+4. **Run migrations:**
+   - Apply database migrations (see DEVELOPMENT.md)
+
+5. **Start coding:**
+   ```bash
+   npm run dev:web
+   ```
+
+### For Returning Developers
+
+```bash
+# Pull latest
+git pull origin main
+
+# Install any new deps
+npm install
+
+# Start dev server
+npm run dev:web
+```
+
+---
+
+## 🗄️ Database
+
+**Tables:**
+- `profiles` - User accounts
+- `events` - Conference events
+- `registrations` - Event registrations
+- `roommate_selections` - User's roommate choices
+- `roommate_matches` - Final pairings
+- `cancellation_requests` - Cancellation workflow
+
+All migrations in `supabase/migrations/`
+
+---
+
+## 🔐 Authentication
+
+- **Google OAuth** via Supabase Auth
+- Admin portal requires authentication
+- Mobile app uses same auth system
+- See DEVELOPMENT.md for OAuth setup
+
+---
+
+## 📦 Workspace Packages
+
+### `apps/web`
+Next.js web admin portal with protected routes for managing users, registrations, roommate pairings, and data exports.
+
+### `apps/mobile`
+React Native mobile app (Expo) for attendees with event information, travel hub, and interactive features.
+
+### `packages/shared`
+Shared TypeScript code including type definitions, roommate pairing algorithm, and utility functions.
+
+---
+
+## 🎯 Current Status
+
+✅ Project structure set up  
+✅ Database schema created  
+✅ Authentication working  
+✅ Web admin basic dashboard  
+🚧 Building admin features  
+⏳ Mobile app (coming next)
+
+---
+
+## 🤝 Contributing
+
+This is a client project with specific requirements. See:
+- [REQUIREMENTS.md](REQUIREMENTS.md) for what to build
+- [DEVELOPMENT.md](DEVELOPMENT.md) for how to build it
+
+---
+
+**Built with:** React, Next.js, Supabase, Expo  
 **For:** ABC Summit 2025 (Feb 27-28, 2026)
