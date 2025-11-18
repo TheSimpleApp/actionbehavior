@@ -1,209 +1,149 @@
-# 🎯 ABC Summit 2025
+# ABC Summit 2025 Conference App
 
-> Enterprise conference app for 2,400+ employees
-
-**Event:** February 27-28, 2026  
-**Venue:** Gaylord Texan, Grapevine, TX  
-**Client:** Action Behavior Centers
-
----
+**Tech Stack:** React Native (Expo SDK 51) + Next.js 16 + Supabase  
+**Launch Date:** December 1, 2025 (13 days)  
+**Status:** 🚀 Active Development - MVP Sprint
 
 ## 🚀 Quick Start
+
+### Prerequisites
+
+* **Node.js 20.9+** (REQUIRED for Next.js 16)
+* **npm 10+** (REQUIRED)
+* Expo CLI
+* Supabase account
+
+### Verify Your Environment
+
+```bash
+node --version   # Must show >= 20.9.0
+npm --version    # Must show >= 10.0.0
+```
+
+### Critical Note
+
+This project uses **Next.js 16** and **React 19**, which require Node.js 20.9+. Older Node versions will fail.
+
+### Installation
 
 ```bash
 # Install dependencies
 npm install
 
-# Setup environment variables (see DEVELOPMENT.md)
-cp apps/web/.env.local.example apps/web/.env.local
-# Edit .env.local with your Supabase credentials
-
-# Start development server
-npm run dev:web
+# Set up environment variables
+cp apps/web/.env.example apps/web/.env.local
+cp apps/mobile/.env.example apps/mobile/.env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+### Development
 
----
+```bash
+# Run web app (Next.js)
+npm run web
 
-## 📚 Documentation
+# Run mobile app (Expo)
+npm run mobile
+```
 
-- **[REQUIREMENTS.md](REQUIREMENTS.md)** - Complete project requirements
-- **[DEVELOPMENT.md](DEVELOPMENT.md)** - Setup & development guide
-- **[QUICK_SETUP.md](QUICK_SETUP.md)** - Quick setup reference
-- **[START_HERE.md](START_HERE.md)** - Getting started guide
-
----
-
-## 🏗️ Project Structure
+## 📁 Project Structure
 
 ```
 abc-summit-2025/
 ├── apps/
-│   ├── web/              # Next.js Web Admin Portal
-│   └── mobile/           # React Native Mobile App (Expo)
+│   ├── web/          # Next.js admin + registration website
+│   └── mobile/       # React Native (Expo) mobile app
 ├── packages/
-│   └── shared/           # Shared types & utilities
+│   └── shared/       # Shared types, utilities, constants
 └── supabase/
-    └── migrations/       # Database migrations
+    └── migrations/   # Database migrations
 ```
 
----
+## 🎯 Key Features
 
-## 🛠️ Tech Stack
+### Priority 1: Data Export System
 
-| Component | Technology |
-|-----------|-----------|
-| **Web Admin** | Next.js 16, React 19, TypeScript |
-| **Mobile App** | React Native (Expo SDK 51) |
-| **Backend** | Supabase (PostgreSQL + Auth + Storage) |
-| **Styling** | Tailwind CSS (web), NativeWind (mobile) |
-| **State** | Zustand + TanStack Query |
-| **Monorepo** | Turborepo |
+* Comprehensive CSV exports for all registration data
+* Travel data export for airline booking
+* Roommate analysis (original selections + final matches)
+* Catering data with meal preferences
 
----
+### Core Features
 
-## 🔥 Key Features
+* Event registration with RSVP
+* Travel and hotel booking management
+* Roommate selection with role-based pairing rules
+* Automated roommate matching algorithm
+* Admin dashboard for full control
+* Mobile app with QR code check-in
+* Travel Hub (consolidated travel info)
+* Push notifications
 
-### Top Priorities
-1. **Data Exports** - One-click CSV exports (critical for client)
-2. **Roommate Pairing** - Automated algorithm with 11 role types
-3. **Admin Control** - Self-service content management
+## 🏗️ Development Timeline
 
-### Web Admin Portal
-- User management
-- Registration oversight
-- Roommate pairing management
-- Data exports (CSV)
-- Travel coordination
-- Push notifications
+**MVP Launch:** December 1, 2025 (13 days from Nov 18)  
+**Event Date:** February 27-28, 2026
 
-### Mobile App
-- Travel hub (flights, hotel, roommates)
-- Event schedule
-- Interactive floor plans
-- Speaker bios
-- QR code check-in
-- Push notifications
+### Sprint Plan (13 Days)
 
----
+* **Days 1-2:** Setup + Authentication ✅
+* **Days 3-5:** Registration + Data Exports ⭐
+* **Days 6-7:** Mobile App MVP
+* **Days 8-9:** Testing + Polish
+* **Days 10-11:** Deployment
+* **Days 12-13:** Final Testing + Launch 🚀
 
-## 📋 Available Scripts
+See `MVP_SPRINT_PLAN.md` for detailed day-by-day breakdown.
 
-```bash
-# Development
-npm run dev              # Run all apps
-npm run dev:web          # Web admin only
-npm run dev:mobile       # Mobile app only
+### Post-Launch (Dec 2 - Feb 27)
 
-# Database
-npm run db:start         # Start local Supabase
-npm run db:reset         # Reset & apply migrations
+* Automated roommate pairing algorithm
+* QR code check-in
+* Shanky integration
+* Interactive floor plans
+* Advanced features
 
-# Build
-npm run build            # Build all apps
-npm run build:web        # Build web admin
+## 📊 Database Schema
 
-# Utilities
-npm run lint             # Lint code
-npm run format           # Format with Prettier
-```
+See `supabase/migrations/` for complete schema.
 
----
+Key tables:
 
-## 🚦 Getting Started
+* `profiles` - User information
+* `events` - Conference events
+* `registrations` - Event registrations with travel/hotel data
+* `roommate_selections` - User roommate preferences
+* `roommate_matches` - Final roommate assignments
 
-### For First Time Setup
+## 🔧 Tech Stack (Production)
 
-1. **Read the docs:**
-   - [DEVELOPMENT.md](DEVELOPMENT.md) - Complete setup guide
-   - [REQUIREMENTS.md](REQUIREMENTS.md) - What we're building
+### Web (Next.js 16)
 
-2. **Setup Supabase:**
-   - Create account at [supabase.com](https://supabase.com)
-   - Create new project
-   - Copy credentials
+* **Next.js:** 16.0.3 (Latest LTS)
+* **React:** 19.2.0 (Required by Next.js 16)
+* **TypeScript:** 5.1+
+* **Tailwind CSS:** 3.4.x
+* **Forms:** React Hook Form + Zod
+* **State:** TanStack Query + Zustand
 
-3. **Configure environment:**
-   - See [QUICK_SETUP.md](QUICK_SETUP.md) for details
+### Mobile (Expo SDK 51)
 
-4. **Run migrations:**
-   - Apply database migrations (see DEVELOPMENT.md)
+* **Expo:** SDK 51 (Proven stable)
+* **React Native:** 0.74.5
+* **React:** 18.2.0 (Mobile uses React 18)
+* **Styling:** NativeWind 4.0
+* **Navigation:** Expo Router
 
-5. **Start coding:**
-   ```bash
-   npm run dev:web
-   ```
+### Backend (Supabase)
 
-### For Returning Developers
+* **Database:** PostgreSQL 15
+* **Auth:** Supabase Auth (Google Sign-In)
+* **Storage:** Supabase Storage
+* **Security:** Row Level Security (RLS)
 
-```bash
-# Pull latest
-git pull origin main
+**Note:** Web uses React 19, Mobile uses React 18 (different ecosystems)
 
-# Install any new deps
-npm install
+See `TECH_STACK.md` for complete details and compatibility matrix.
 
-# Start dev server
-npm run dev:web
-```
+## 📝 License
 
----
-
-## 🗄️ Database
-
-**Tables:**
-- `profiles` - User accounts
-- `events` - Conference events
-- `registrations` - Event registrations
-- `roommate_selections` - User's roommate choices
-- `roommate_matches` - Final pairings
-- `cancellation_requests` - Cancellation workflow
-
-All migrations in `supabase/migrations/`
-
----
-
-## 🔐 Authentication
-
-- **Google OAuth** via Supabase Auth
-- Admin portal requires authentication
-- Mobile app uses same auth system
-- See DEVELOPMENT.md for OAuth setup
-
----
-
-## 📦 Workspace Packages
-
-### `apps/web`
-Next.js web admin portal with protected routes for managing users, registrations, roommate pairings, and data exports.
-
-### `apps/mobile`
-React Native mobile app (Expo) for attendees with event information, travel hub, and interactive features.
-
-### `packages/shared`
-Shared TypeScript code including type definitions, roommate pairing algorithm, and utility functions.
-
----
-
-## 🎯 Current Status
-
-✅ Project structure set up  
-✅ Database schema created  
-✅ Authentication working  
-✅ Web admin basic dashboard  
-🚧 Building admin features  
-⏳ Mobile app (coming next)
-
----
-
-## 🤝 Contributing
-
-This is a client project with specific requirements. See:
-- [REQUIREMENTS.md](REQUIREMENTS.md) for what to build
-- [DEVELOPMENT.md](DEVELOPMENT.md) for how to build it
-
----
-
-**Built with:** React, Next.js, Supabase, Expo  
-**For:** ABC Summit 2025 (Feb 27-28, 2026)
+Proprietary - ABC Company
