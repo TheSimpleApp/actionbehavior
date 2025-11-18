@@ -1,0 +1,25 @@
+# Cursor-specific ignore patterns
+# This allows reading .env.local for testing while keeping other env files private
+
+# Allow .env.local to be read by Cursor for testing
+# !.env.local
+
+# Still ignore sensitive env files
+.env
+.env.production
+
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+dist/
+build/
+
+# Logs
+*.log
+
+# Large binary files
+*.pdf
+Contract_Scope.pdf
+
