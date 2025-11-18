@@ -2,8 +2,8 @@
 
 ## Tech Stack
 
-**Mobile:** React Native (Expo SDK 50)  
-**Web:** Next.js 14 (App Router)  
+**Mobile:** React Native (Expo SDK 51)  
+**Web:** Next.js 16 (App Router)  
 **Database:** Supabase (PostgreSQL)  
 **Auth:** Supabase Auth (Google Sign-In)  
 **Storage:** Supabase Storage  
