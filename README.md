@@ -45,9 +45,9 @@
 
 ## 🏗️ Tech Stack
 
-**Mobile App:** React Native (Expo SDK 50)  
-**Web Admin:** Next.js 14 (App Router)  
-**Registration:** Next.js 14 (same codebase)  
+**Mobile App:** React Native (Expo SDK 51)  
+**Web Admin:** Next.js 16 (App Router)  
+**Registration:** Next.js 16 (same codebase)  
 **Backend:** Supabase (PostgreSQL + Auth + Storage + Realtime)  
 **State:** Zustand + TanStack Query  
 **Styling:** Tailwind CSS + NativeWind  

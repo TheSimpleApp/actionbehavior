@@ -18,9 +18,10 @@ Complete technical reference for the ActionBehavior conference platform.
 ## 🏗️ Tech Stack
 
 ### Frontend
-- **Web Admin & Registration:** Next.js 14.1.0 (App Router)
-- **Mobile App:** React Native via Expo SDK 50.0.0
-- **Styling:** Tailwind CSS 3.4.1 + NativeWind 4.0.1
+- **Web Admin & Registration:** Next.js 16.0.3 (App Router)
+- **Mobile App:** React Native via Expo SDK 51.0.0
+- **React:** React 19.2 (web), React 18.2 (mobile)
+- **Styling:** Tailwind CSS 3.4.x + NativeWind 4.0+
 - **UI Components:** shadcn/ui (web)
 
 ### Backend
@@ -30,14 +31,15 @@ Complete technical reference for the ActionBehavior conference platform.
 - **Realtime:** Supabase Realtime
 
 ### State & Data
-- **Server State:** @tanstack/react-query 5.17.19
-- **Client State:** Zustand 4.5.0
-- **Forms:** react-hook-form 7.49.3
-- **Validation:** Zod 3.22.4
+- **Server State:** @tanstack/react-query 5.x
+- **Client State:** Zustand 4.5+
+- **Forms:** react-hook-form 7.49+
+- **Validation:** Zod 3.22+
 
 ### Development
-- **Monorepo:** Turborepo 1.12.0
-- **Language:** TypeScript 5.3.3
+- **Monorepo:** Turborepo 1.13+
+- **Language:** TypeScript 5.1+
+- **Runtime:** Node.js 20.9+ LTS
 - **AI Tools:** Claude Max + Cursor Ultra
 
 ---

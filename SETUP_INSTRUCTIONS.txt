@@ -1,0 +1,51 @@
+===========================================
+SUPABASE AUTO-SETUP INSTRUCTIONS
+===========================================
+
+I've set up everything for automatic Supabase configuration!
+
+STEP 1: Authenticate with Supabase
+------------------------------------
+Run this command in your terminal:
+  npx supabase login
+
+This will open your browser to authenticate.
+
+STEP 2: Link Your Project
+--------------------------
+Option A - Link Existing Project:
+  npx supabase projects list
+  npx supabase link --project-ref YOUR_PROJECT_ID
+
+Option B - Create New Project:
+  1. Go to https://supabase.com/dashboard
+  2. Create new project: "abc-summit-2025"
+  3. Then link it: npx supabase link --project-ref YOUR_PROJECT_ID
+
+STEP 3: Apply Database Schema
+-------------------------------
+  npx supabase db push
+
+This will create all 10 tables automatically!
+
+STEP 4: Get Credentials & Update Env Files
+-------------------------------------------
+1. Go to: https://supabase.com/dashboard/project/_/settings/api
+2. Copy your Project URL and keys
+3. Update apps/web/.env.local with your credentials
+4. Update apps/mobile/.env with your credentials
+
+STEP 5: Start Development
+--------------------------
+Terminal 1 - Web:
+  cd apps/web
+  npm run dev
+
+Terminal 2 - Mobile:
+  cd apps/mobile
+  npm start
+
+===========================================
+That's it! Your Supabase is now linked and ready.
+===========================================
+
