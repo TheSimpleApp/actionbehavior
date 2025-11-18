@@ -61,3 +61,25 @@ next-env.d.ts
 
 # Contract (sensitive)
 Contract_Scope.pdf
+
+# Vercel
+.vercel
+
+# EAS (Expo Application Services)
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+*.cer
+google-services.json
+GoogleService-Info.plist
+
+# Secrets
+secrets/
+*.pem
+*.crt
+SECRETS_TEMPLATE.txt
+*SECRETS*.txt
+CREDENTIALS_COLLECTED.md
