@@ -9,8 +9,8 @@
 Install these first:
 
 ```bash
-# Node.js 18+
-node --version  # Should be v18 or higher
+# Node.js 20.9+ (Required for Next.js 16)
+node --version  # Should be v20.9 or higher
 
 # Install global tools
 npm install -g turbo supabase expo-cli
@@ -46,17 +46,19 @@ In Supabase dashboard:
 mkdir abc-summit-2025
 cd abc-summit-2025
 
-# Initialize Next.js (web)
+# Initialize Next.js 16 (web)
 mkdir -p apps/web
 cd apps/web
 npx create-next-app@latest . --typescript --tailwind --app --yes
+# Note: This will create Next.js 16 by default
 npm install @supabase/ssr @supabase/supabase-js @tanstack/react-query zustand react-hook-form zod
 cd ..
 
-# Initialize Expo (mobile)
+# Initialize Expo SDK 51 (mobile)
 mkdir apps/mobile
 cd apps/mobile
 npx create-expo-app@latest . --template tabs
+# Ensure Expo SDK 51 is used (check package.json after creation)
 npm install @supabase/supabase-js @tanstack/react-query zustand nativewind
 cd ..
 
