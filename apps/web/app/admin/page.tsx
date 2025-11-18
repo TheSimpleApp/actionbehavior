@@ -16,30 +16,63 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     async function loadStats() {
+      console.log('[AdminDashboard] Loading stats...')
       try {
+        // Get current user first
+        const { data: { user }, error: userError } = await supabase.auth.getUser()
+        if (userError) {
+          console.log('[AdminDashboard] User error:', userError.message)
+        } else {
+          console.log(`[AdminDashboard] User: ${user?.email} (${user?.id})`)
+        }
+
         // Get total registrations
-        const { count: regCount } = await supabase
+        console.log('[AdminDashboard] Querying registrations (yes)...')
+        const { count: regCount, error: regError } = await supabase
           .from('registrations')
           .select('*', { count: 'exact', head: true })
           .eq('rsvp_status', 'yes')
+        if (regError) {
+          console.log('[AdminDashboard] Registrations error:', regError.message, regError.code, regError.details)
+        } else {
+          console.log(`[AdminDashboard] Total registrations: ${regCount}`)
+        }
 
         // Get pending cancellations
-        const { count: cancelCount } = await supabase
+        console.log('[AdminDashboard] Querying cancellation_requests...')
+        const { count: cancelCount, error: cancelError } = await supabase
           .from('cancellation_requests')
           .select('*', { count: 'exact', head: true })
           .eq('status', 'pending')
+        if (cancelError) {
+          console.log('[AdminDashboard] Cancellation requests error:', cancelError.message, cancelError.code, cancelError.details)
+        } else {
+          console.log(`[AdminDashboard] Pending cancellations: ${cancelCount}`)
+        }
 
         // Get travel bookings
-        const { count: travelCount } = await supabase
+        console.log('[AdminDashboard] Querying registrations (travel)...')
+        const { count: travelCount, error: travelError } = await supabase
           .from('registrations')
           .select('*', { count: 'exact', head: true })
           .eq('travel_needed', true)
+        if (travelError) {
+          console.log('[AdminDashboard] Travel bookings error:', travelError.message, travelError.code, travelError.details)
+        } else {
+          console.log(`[AdminDashboard] Travel bookings: ${travelCount}`)
+        }
 
         // Get hotel rooms needed
-        const { count: hotelCount } = await supabase
+        console.log('[AdminDashboard] Querying registrations (hotel)...')
+        const { count: hotelCount, error: hotelError } = await supabase
           .from('registrations')
           .select('*', { count: 'exact', head: true })
           .eq('hotel_needed', true)
+        if (hotelError) {
+          console.log('[AdminDashboard] Hotel rooms error:', hotelError.message, hotelError.code, hotelError.details)
+        } else {
+          console.log(`[AdminDashboard] Hotel rooms: ${hotelCount}`)
+        }
 
         setStats({
           totalRegistrations: regCount || 0,
@@ -47,8 +80,9 @@ export default function AdminDashboard() {
           travelBookings: travelCount || 0,
           hotelRooms: hotelCount || 0
         })
+        console.log('[AdminDashboard] Stats loaded successfully')
       } catch (error) {
-        console.error('Error loading stats:', error)
+        console.error('[AdminDashboard] Error loading stats:', error)
       } finally {
         setLoading(false)
       }
