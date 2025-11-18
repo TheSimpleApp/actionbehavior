@@ -1,0 +1,46 @@
+{
+  "name": "abc-summit-2025",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ABC Summit 2025 - Enterprise conference app for Action Behavior Centers",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:web": "cd apps/web && npm run dev",
+    "dev:mobile": "cd apps/mobile && npx expo start",
+    "build": "turbo run build",
+    "build:web": "cd apps/web && npm run build",
+    "build:mobile": "cd apps/mobile && eas build",
+    "type-check": "turbo run type-check",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "db:start": "supabase start",
+    "db:stop": "supabase stop",
+    "db:push": "supabase db push",
+    "db:reset": "supabase db reset",
+    "db:types": "supabase gen types typescript --project-id $SUPABASE_PROJECT_ID > packages/shared/src/types/supabase.ts",
+    "db:migration": "supabase migration new",
+    "mobile:ios": "cd apps/mobile && npx expo run:ios",
+    "mobile:android": "cd apps/mobile && npx expo run:android"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.2.4",
+    "turbo": "^1.12.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
